@@ -19,7 +19,7 @@ function getCities(event) {
     const stateInput = document.querySelector("select[name=city]")
 
     const ufValue = event.target.value
-
+    
     const indexOfSelectedState = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedState]
 
