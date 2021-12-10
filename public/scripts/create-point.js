@@ -21,7 +21,7 @@ function getCities(event) {
     const ufValue = event.target.value
 
     const indexOfSelectedState = event.target.selectedIndex
-    stateInput.value = event.target.options[indexOfSelectedState]
+    stateInput.value = event.target.options[indexOfSelectedState].text
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
 
@@ -68,7 +68,9 @@ function handleSelectedItem(event) {
     // adicionar ou remover uma classe com javascript
     itemLi.classList.toggle("selected")
     
-    const itemId = itemLi.dataSet.id
+    const itemId = itemLi.dataset.id
+
+    console.log('ITEM ID:',  itemId)
 
     // pegar os itens selecionados
     const alreadySelected = selectedItems.findIndex( item => {
@@ -89,6 +91,9 @@ function handleSelectedItem(event) {
         //se nao tiver selecionado, adicionar à seleção
         selectedItems.push(itemId)
     }
+
+    console.log('selectedItems: ', selectedItems)
+
 
     //atualizar o campo escondido com os items selecionados
     collectedItems.value = selectedItems
